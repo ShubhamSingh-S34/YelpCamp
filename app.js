@@ -94,9 +94,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', ejsMate);
 app.use(express.urlencoded({ extended: true }));
-app.listen(3000, () => {
-    console.log("LISTENING ON PORT 3000!!!");
-})
 
 
 app.use((req, res, next) => {
@@ -146,7 +143,10 @@ app.use((err, req, res, next) => {
     // res.send('OH boy!!! something went wrong!!!')
 })
 
-
+const port=process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`LISTENING ON PORT ${port}!!!`);
+})
 
 
 
